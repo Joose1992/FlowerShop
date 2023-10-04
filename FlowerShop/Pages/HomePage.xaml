@@ -6,7 +6,7 @@
              Padding="15">
    
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="10">
             <Border StrokeShape="RoundRectangle 10"
                     StrokeThickness="0"
                     BackgroundColor="Goldenrod"
@@ -41,6 +41,13 @@
                            HeightRequest="150"
                            WidthRequest="150"/>
                 </Grid>
+            </Border>
+            <Border StrokeShape="RoundRectangle 22"
+                    StrokeThickness="3"
+                    Stroke="Goldenrod">
+                <Label Text="Search Here..."
+                       TextColor="Goldenrod"
+                       Padding="10,14"/>
             </Border>
         </VerticalStackLayout>
     </ScrollView>

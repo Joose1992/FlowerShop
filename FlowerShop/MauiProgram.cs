@@ -1,4 +1,7 @@
 ﻿using CommunityToolkit.Maui;
+using FlowerShop.Pages;
+using FlowerShop.Services;
+using FlowerShop.ViewModels;
 using Microsoft.Extensions.Logging;
 
 namespace FlowerShop
@@ -20,8 +23,14 @@ namespace FlowerShop
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
+            AddFlowersServices(builder.Services);
             return builder.Build();
+        }
+        private static IServiceCollection AddFlowersServices(IServiceCollection services)
+        {
+            services.AddSingleton<FlowerService>();
+            services.AddSingletonWithShellRoute<HomePage, HomeViewModel>(nameof(HomePage));
+            return services;
         }
     }
 }
