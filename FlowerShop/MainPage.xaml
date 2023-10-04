@@ -1,41 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FlowerShop.MainPage">
+             x:Class="FlowerShop.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="DarkGoldenrod">
 
-    <ScrollView>
+    <Grid RowDefinitions="auto, *, auto"
+          Padding="15, 25">
+        <Label
+            Grid.Row="0"
+            Text="Flower World"
+            FontSize="50"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"/>
+
+        <Image
+            Grid.Row="1"
+            Source="flower_three.png"
+            HeightRequest="250"
+            WidthRequest="250"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+
         <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
+            Grid.Row="2"
+            Spacing="10">
+            <Label Text="Best Flowers In Town!"
+                   FontSize="40"
+                   FontAttributes="Bold"/>
+            <Label Text="Get the best flowers for your event!"
+                   FontSize="18"
+                   LineHeight="1.2"/>
+            <Border StrokeShape="RoundRectangle 25"
+                    StrokeThickness="0"
+                    BackgroundColor="Goldenrod"
+                    HeightRequest="50">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                        
+                    </TapGestureRecognizer>
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label
+                        Text="Get Started"
+                        VerticalOptions="Center"
+                        FontSize="18"/>
+                    <Image Source="right_arrow.png"
+                           VerticalOptions="Center"
+                           HeightRequest="30"/>
+                </HorizontalStackLayout>
+            </Border>
         </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
 
 </ContentPage>
