@@ -13,7 +13,7 @@ namespace FlowerShop
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(HomePage));
+            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
         }
     }
 }
