@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:FlowerShop.ViewModels"
+             xmlns:models="clr-namespace:FlowerShop.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewModel:HomeViewModel"
              x:Class="FlowerShop.Pages.HomePage"
              Title="Flower world"
              Padding="15">
@@ -49,6 +53,74 @@
                        TextColor="Goldenrod"
                        Padding="10,14"/>
             </Border>
+
+            <BoxView HeightRequest="15"
+                     Color="Transparent"/>
+            
+            <Grid ColumnDefinitions="*, *">
+                <Label Grid.Column="0"
+                       Text="Popular Items"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="End"/>
+                <Label Grid.Column="1"
+                       Text="View all"
+                       HorizontalOptions="End"
+                       VerticalOptions="End"
+                       TextDecorations="Underline"/>
+            </Grid>
+            <FlexLayout BindableLayout.ItemsSource="{Binding Flowers}"
+                        Wrap="Wrap">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:FlowersModel">
+                        <Border FlexLayout.Basis="50%"
+                                StrokeShape="RoundRectangle 10"
+                                StrokeThickness="0"
+                                BackgroundColor="PaleGoldenrod"
+                                Padding="10"
+                                Margin="2">
+                            <Grid RowDefinitions="150, auto, auto, auto"
+                                  RowSpacing="5">
+                                <Image Grid.Row="0"
+                                       Source="{Binding Image}"
+                                       HeightRequest="150"
+                                       WidthRequest="130"/>
+                                <Label Grid.Row="1"
+                                       Text="{Binding Name}"
+                                       HorizontalOptions="Center"
+                                       FontSize="20"/>
+                                <Grid Grid.Row="2"
+                                      ColumnDefinitions="*, *">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Price, StringFormat='${0:N2}'}"
+                                           HorizontalOptions="Start"
+                                           FontAttributes="Bold"/>
+                                    <HorizontalStackLayout Grid.Column="1"
+                                                           HorizontalOptions="End"
+                                                           Spacing="3">
+                                        <Label Text="4"/>
+                                        <Image Source="star"
+                                               HeightRequest="15"
+                                               WidthRequest="15">
+                                            <Image.Behaviors>
+                                                <toolkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>
+                                            </Image.Behaviors>
+                                        </Image>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                                <Button
+                                    Grid.Row="3"
+                                    Text="View More"
+                                    TextColor="Black"
+                                    CornerRadius="22"
+                                    BackgroundColor="Gold"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="End"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
