@@ -62,7 +62,7 @@ namespace FlowerShop.Services
             _flowers.OrderBy(p => Guid.NewGuid())
             .Take(count);
 
-        public IEnumerable<FlowersModel> GetFlowers(string searchTerm) =>
+        public IEnumerable<FlowersModel> SearchFlowers(string searchTerm) =>
             string.IsNullOrWhiteSpace(searchTerm)
             ? _flowers
             : _flowers.Where(f => f.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));

@@ -30,6 +30,7 @@ namespace FlowerShop
         {
             services.AddSingleton<FlowerService>();
             services.AddSingletonWithShellRoute<HomePage, HomeViewModel>(nameof(HomePage));
+            services.AddSingletonWithShellRoute<FlowersDetails, FlowersDetailsViewModels>(nameof(FlowersDetails));
             return services;
         }
     }
